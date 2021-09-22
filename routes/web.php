@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\AboutController;
+use App\Http\Controllers\frontend\servicesController;
+use App\Http\Controllers\frontend\ContactController;
+use App\Http\Controllers\frontend\UplodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HomeController::class, 'index']);
+Route::get('/about',[AboutController::class, 'index']);
+Route::get('/services',[ServicesController::class, 'index']);
+Route::get('/contact',[ContactController::class, 'index']);
+Route::get('/uplode',[UplodeController::class, 'index']);
+Route::post('/uplode',[UplodeController::class, 'store']);
